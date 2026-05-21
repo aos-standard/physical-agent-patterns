@@ -41,9 +41,11 @@ export ANTHROPIC_MODEL=claude-haiku-4-5   # optional; override for Sonnet/Opus
 python patterns/02_physical-first/agent_with_evidence.py "What are the top 3 AI agent trends?"
 # → evidence/evidence_YYYY-MM-DD.json  (this is your proof it ran)
 
-# Try pattern 03: detect violations
-python patterns/03_immune-loop/violation_detector.py
-python patterns/03_immune-loop/repair_planner.py
+# Try pattern 03: detect violations (must run from pattern directory)
+cd patterns/03_immune-loop
+python violation_detector.py   # → ./violations.json
+python repair_planner.py       # → ./repair_plan_YYYY-MM-DD.md
+cd ../..
 ```
 
 ---

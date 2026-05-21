@@ -38,11 +38,15 @@ Ensure `~/.config/physical-agent/env` contains `ANTHROPIC_API_KEY` (and optional
 
 ## Manual run
 
+Run from **`patterns/03_immune-loop/`** — both scripts write output to the **current working directory** (`violations.json`, `repair_plan_YYYY-MM-DD.md`). Running from elsewhere scatters those files.
+
 ```bash
 cd patterns/03_immune-loop
-python violation_detector.py   # → violations.json
-python repair_planner.py       # → repair_plan_YYYY-MM-DD.md
+python violation_detector.py   # → ./violations.json (this directory)
+python repair_planner.py       # → ./repair_plan_YYYY-MM-DD.md (this directory)
 ```
+
+The systemd units set `WorkingDirectory` to this directory, so scheduled runs stay consistent.
 
 ## Extending
 
