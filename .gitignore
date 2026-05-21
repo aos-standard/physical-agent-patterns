@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+.env
+*.env
+evidence/
+output/
+violations.json
+repair_plan_*.md
+.venv/
+venv/

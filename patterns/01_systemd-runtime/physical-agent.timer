@@ -1,0 +1,11 @@
+[Unit]
+Description=Physical Agent — Daily Timer
+Requires=physical-agent.service
+
+[Timer]
+OnCalendar=daily
+Persistent=true
+RandomizedDelaySec=300
+
+[Install]
+WantedBy=timers.target

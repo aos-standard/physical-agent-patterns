@@ -1,0 +1,15 @@
+[Unit]
+Description=Immune Loop — Violation Detector
+After=network.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=%h/physical-agent-patterns/patterns/03_immune-loop
+ExecStart=/usr/bin/python3 violation_detector.py
+ExecStartPost=/usr/bin/python3 repair_planner.py
+EnvironmentFile=%h/.config/physical-agent/env
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=default.target

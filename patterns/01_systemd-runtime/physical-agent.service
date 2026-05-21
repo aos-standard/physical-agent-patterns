@@ -1,0 +1,15 @@
+[Unit]
+Description=Physical Agent — Daily Run
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=%h/physical-agent-patterns
+ExecStart=/usr/bin/python3 patterns/01_systemd-runtime/agent.py
+EnvironmentFile=%h/.config/physical-agent/env
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=default.target
