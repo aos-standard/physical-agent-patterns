@@ -8,3 +8,4 @@ violations.json
 repair_plan_*.md
 .venv/
 venv/
+docs/drafts/
